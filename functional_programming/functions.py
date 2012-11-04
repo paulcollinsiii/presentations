@@ -7,6 +7,12 @@ def partial(func, *args, **kwargs):
 
 
 def zip(*iterables):
+    """
+    "Zip" together a list of iterables
+
+    Return list of tuples where the *i*-th tuple contains the *i*-th element
+    from each iterable.
+    """
     results = []
     shortest_length = min(len(i) for i in iterables) if iterables else 0
     for n in range(shortest_length):

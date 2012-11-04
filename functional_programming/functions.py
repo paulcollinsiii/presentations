@@ -28,3 +28,8 @@ def chain(*iterables):
 def map(func, iterable):
     """Apply function to all elements in iterable and return resulting list"""
     return [func(i) for i in iterable]
+
+
+def starmap(func, arg_lists):
+    """Apply function to list of argument lists"""
+    return [func(*args) for args in arg_lists]

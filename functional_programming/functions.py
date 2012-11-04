@@ -23,3 +23,8 @@ def zip(*iterables):
 def chain(*iterables):
     """Return concatenation of all arguments of given iterables as a list"""
     return [x for iterable in iterables for x in iterable]
+
+
+def map(func, iterable):
+    """Apply function to all elements in iterable and return resulting list"""
+    return [func(i) for i in iterable]

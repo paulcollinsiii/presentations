@@ -18,3 +18,8 @@ def zip(*iterables):
     for n in range(shortest_length):
         results.append(tuple([iterable[n] for iterable in iterables]))
     return results
+
+
+def chain(*iterables):
+    """Return concatenation of all arguments of given iterables as a list"""
+    return [x for iterable in iterables for x in iterable]

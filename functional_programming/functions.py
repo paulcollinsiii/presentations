@@ -33,3 +33,24 @@ def map(func, iterable):
 def starmap(func, arg_lists):
     """Apply function to list of argument lists"""
     return [func(*args) for args in arg_lists]
+
+
+def multi_map(func, *iterables):
+    results = []
+    longest_length = max(len(i) for i in iterables) if iterables else 0
+    for n in range(longest_length):
+        results.append(func(*[i[n] if len(i) > n else None for i in iterables]))
+    return results
+
+
+def reduce(func, iterable, initial=None):
+    iterator = iter(iterable)
+    if initial is None:
+        try:
+            initial = next(iterator)
+        except StopIteration:
+            raise TypeError('reduce() of empty sequence with no initial value')
+    accumulation = initial
+    for x in iterator:
+        accumulation = func(accumulation, x)
+    return accumulation
